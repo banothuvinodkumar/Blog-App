@@ -14,7 +14,13 @@ const commentRoutes = require('./routes/comments');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        process.env.CLIENT_URL || 'https://blog-app-lovat-one-38.vercel.app',
+        'http://localhost:5173' // Keep local development working
+    ],
+    credentials: true
+}));
 app.use(express.json());
 
 // Routes
