@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Default & Post Details (Blue Theme) */
+  :root, .theme-post {
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-200: #bfdbfe;
+    --color-primary-300: #93c5fd;
+    --color-primary-400: #60a5fa;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;
+    --color-primary-700: #1d4ed8;
+    --color-primary-800: #1e40af;
+    --color-primary-900: #1e3a8a;
+    --color-surface: rgba(255, 255, 255, 0.85);
+    --color-background: #f8fafc;
+    --gradient-from: #3b82f6;
+    --gradient-to: #06b6d4; /* teal */
+  }
+
+  /* Home & Auth (Purple to Pink Theme) */
+  .theme-home {
+    --color-primary-50: #fdf4ff;
+    --color-primary-100: #fae8ff;
+    --color-primary-200: #f5d0fe;
+    --color-primary-300: #f0abfc;
+    --color-primary-400: #e879f9;
+    --color-primary-500: #d946ef;
+    --color-primary-600: #c026d3;
+    --color-primary-700: #a21caf;
+    --color-primary-800: #86198f;
+    --color-primary-900: #701a75;
+    --color-surface: rgba(255, 255, 255, 0.7);
+    --color-background: #faf5ff;
+    --gradient-from: #a855f7; /* purple */
+    --gradient-to: #ec4899; /* pink */
+  }
+
+  /* Create & Edit Post (Green Theme) */
+  .theme-create {
+    --color-primary-50: #ecfdf5;
+    --color-primary-100: #d1fae5;
+    --color-primary-200: #a7f3d0;
+    --color-primary-300: #6ee7b7;
+    --color-primary-400: #34d399;
+    --color-primary-500: #10b981;
+    --color-primary-600: #059669;
+    --color-primary-700: #047857;
+    --color-primary-800: #065f46;
+    --color-primary-900: #064e3b;
+    --color-surface: rgba(255, 255, 255, 0.8);
+    --color-background: #f0fdf4;
+    --gradient-from: #10b981;
+    --gradient-to: #3b82f6; /* green to blue */
+  }
+
+  /* Admin/Dashboard (Dark Theme) */
+  .theme-admin {
+    --color-primary-50: #ecfeff;
+    --color-primary-100: #cffafe;
+    --color-primary-200: #a5f3fc;
+    --color-primary-300: #67e8f9;
+    --color-primary-400: #22d3ee;
+    --color-primary-500: #06b6d4; /* cyan */
+    --color-primary-600: #0891b2;
+    --color-primary-700: #0e7490;
+    --color-primary-800: #155e75;
+    --color-primary-900: #164e63;
+    --color-surface: #1f2937; /* gray-800 */
+    --color-background: #111827; /* gray-900 */
+    --gradient-from: #06b6d4; /* cyan */
+    --gradient-to: #3b82f6; /* blue */
+  }
+}
+
+body {
+  @apply bg-[var(--color-background)] transition-colors duration-700 ease-in-out text-gray-900;
+}
+
+@layer components {
+  /* Glassmorphism Cards */
+  .glass-card {
+    @apply bg-[var(--color-surface)] backdrop-blur-xl border border-white/30 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300;
+  }
+
+  /* Reusable Gradient Button */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-[var(--gradient-from)] to-[var(--gradient-to)] text-white hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg font-semibold tracking-wide rounded-xl;
+  }
+
+  /* Smooth Gradient Text */
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[var(--gradient-from)] to-[var(--gradient-to)];
+  }
+
+  /* Universal Dark Mode Overrides */
+  .dark {
+    --color-primary-50: #0f172a;
+    --color-primary-100: #1e293b;
+    --color-surface: rgba(30, 41, 59, 0.85);
+    --color-background: #0f172a;
+  }
+  
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+  
+  .dark .bg-white {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .dark .bg-gray-50 {
+    @apply bg-gray-900;
+  }
+  
+  .dark .border-gray-100, .dark .border-gray-200 {
+    @apply border-gray-700;
+  }
+  
+  .dark .text-gray-900, .dark .text-gray-800 {
+    @apply text-gray-100;
+  }
+  
+  .dark .text-gray-700, .dark .text-gray-600 {
+    @apply text-gray-300;
+  }
+}

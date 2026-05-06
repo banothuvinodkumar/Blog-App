@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Environment variables (Keep your database credentials safe!)
+.env
+
+# Build outputs
+dist/
+build/
